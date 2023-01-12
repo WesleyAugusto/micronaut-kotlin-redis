@@ -27,6 +27,11 @@ dependencies {
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // Redis
+    implementation("io.micronaut.redis:micronaut-redis-lettuce")
+    //Gson
+    implementation("com.google.code.gson:gson:2.9.1")
+
 }
 
 
