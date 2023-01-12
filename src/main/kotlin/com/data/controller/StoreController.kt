@@ -5,14 +5,15 @@ import com.data.port.StoreRedisPort
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.MutableHttpResponse
-import io.micronaut.http.annotation.Body
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Delete
-import io.micronaut.http.annotation.Get
-import io.micronaut.http.annotation.Post
+import io.micronaut.http.annotation.*
 
 @Controller
 class StoreController(private val storeRedisPort: StoreRedisPort) {
+
+    @Get
+    fun getAllStore(): MutableHttpResponse<List<Store>>? {
+        return HttpResponse.ok(storeRedisPort.getAllStore())
+    }
 
     @Get("/{id}")
     fun getOneStore(@Parameter id: String): MutableHttpResponse<Store>? {
